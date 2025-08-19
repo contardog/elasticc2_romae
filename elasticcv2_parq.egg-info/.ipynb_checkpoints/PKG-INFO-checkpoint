@@ -1,0 +1,21 @@
+Metadata-Version: 2.4
+Name: elasticc2
+Version: 0.0.1
+Summary: Self-sueprvised learning on ELAsTiCC 2.
+Author-email: Uros Zivanovic <uros.zivanovic@studenti.units.it>, Gabriella Contardo
+Project-URL: Repository, https://github.com/Chromeilion/RoMA-Experiments
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+
+# ELAsTiCC v2 self-supervised learning 
+
+## Running
+
+First install the package:
+
+```bash
+pip install .
+```
+
+To download and prepare the data first run the preprocess command:

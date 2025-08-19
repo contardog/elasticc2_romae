@@ -1,0 +1,25 @@
+Metadata-Version: 2.4
+Name: elasticcv2_parq
+Version: 0.0.1
+Summary: Self-supervised learning on ELAsTiCC 2.
+Author: Gabriella Contardo
+Author-email: Uros Zivanovic <uros.zivanovic@studenti.units.it>
+Maintainer: Gabriella Contardo
+Maintainer-email: Uros Zivanovic <uros.zivanovic@studenti.units.it>
+Project-URL: Repository, https://github.com/Chromeilion/RoMA-Experiments
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+
+# ELAsTiCC 2 Self supervised learning
+
+Using loading / parquet files from Oracle.
+
+## Running
+
+First install the package:
+
+```bash
+pip install .
+```
+
+To download and prepare the data first run the preprocess command:

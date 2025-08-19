@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+# Change this to the name of the directory containing the python package
+include = ["elasticcv2_parq"]
+
+[project]
+# Change this to the name of the experiment
+name = "elasticcv2_parq"
+# Set this to a description of the experiment
+description = "Self-supervised learning on ELAsTiCC 2."
+
+version = "0.0.1"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+    {name = "Uros Zivanovic", email = "uros.zivanovic@studenti.units.it"}, {name="Gabriella Contardo"}
+]
+maintainers = [
+    {name = "Uros Zivanovic", email = "uros.zivanovic@studenti.units.it"}, {name="Gabriella Contardo"}
+]
+# Add in any dependancies your experiment has here
+# Deps for preprocessing: ["pandas", "numpy", "wget", "astropy"]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/Chromeilion/RoMA-Experiments"
