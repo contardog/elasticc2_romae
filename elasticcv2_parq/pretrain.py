@@ -46,7 +46,7 @@ def pretrain(args):
         entity_name='contardog-university-of-nova-gorica',
         gradient_clip=config.pretrain_grad_clip,
         lr_scaling=True,
-        max_checkpoints = 20,
+        #max_checkpoints = 20,
     )
     print("Start pretrain")
     

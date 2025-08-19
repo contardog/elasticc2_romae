@@ -23,9 +23,10 @@ class ElasticcConfig(BaseSettings):
     pretrain_warmup_steps: int = 20
     pretrain_batch_size: int = Field(350)
     pretrain_eval_every: int = Field(1000)
-    pretrain_save_every: int = Field(50)
+    pretrain_save_every: int = Field(1000) #50
     pretrain_mask_ratio: float = Field(0.4)
     pretrain_grad_clip: float = Field(10)
+    max_checkpoints: int = field(50)
     ## This will not finetune supposedly, reinstance carefully if we need to
     #finetune_epochs: int = Field(25)
     # finetune_lr: float = Field(1e-4)
