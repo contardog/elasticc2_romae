@@ -11,7 +11,13 @@ def pretrain(args):
     Pre-training script which will train RoMAForPreTraining on the data.
     """
     config = ElasticcConfig()
-    encoder_args = get_encoder_size(config.model_size)
+    
+    ## Make it smaller?! Add some piece of code for this
+    if args.model_size is not None:
+        print("Overriding configured model size!!!!")
+        config.model_size = args.model_size
+    
+    encoder_args = override_encoder_size(config.model_size)
 
     model_config = RoMAEForPreTrainingConfig(
         encoder_config=EncoderConfig(**encoder_args),
@@ -19,6 +25,8 @@ def pretrain(args):
         n_channels=2,
         n_pos_dims=2
     )
+
+    print(model_config)
     
     if args.lr is not None:
         print("Overridding configured learning rate")
@@ -29,6 +37,7 @@ def pretrain(args):
     if args.epochs is not None:
         print("Overridding configured number of epochs")
         config.pretrain_epochs = args.epochs
+
 
 
 

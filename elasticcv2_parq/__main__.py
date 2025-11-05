@@ -40,6 +40,10 @@ if __name__ == '__main__':
     
     pretrain.add_argument("--batch_size", type=int, default=None,
                          help="Batch size for training")
+
+    
+    pretrain.add_argument("--model_size", type=str, default=None,
+                         help="Model size (see RoMAE and this code utils files)")
     
     pretrain.add_argument("--epochs", type=int, default=None,
                          help="Number of training epochs")
@@ -57,10 +61,38 @@ if __name__ == '__main__':
     
     # Finetune subparser
     finetune = subparsers.add_parser("finetune")
+
+    finetune.add_argument("--lr", type=float, default=None, 
+                         help="Learning rate for training")
+    
+    finetune.add_argument("--batch_size", type=int, default=None,
+                         help="Batch size for training")
+    
+    finetune.add_argument("--epochs", type=int, default=None,
+                         help="Number of training epochs")
+    
+    finetune.add_argument("--pretrained_model", type=str, required=True,
+                         help="Path to test parquet")
+    
+    finetune.add_argument("--model_name", type=str, required=True,
+                         help="Name for the saved model (Required to avoid overwriting my own experiment")
+    
+    finetune.add_argument("--train_parquet", type=str, required=True,
+                         help="Path to training parquet")
+    finetune.add_argument("--test_parquet", type=str, required=True,
+                         help="Path to test parquet")
+
+    
     finetune.set_defaults(func=run_finetune)
     
     # Evaluate subparser
     evaluate = subparsers.add_parser("evaluate")
+    evaluate.add_argument("--test_parquet", type=str, required=True,
+                         help="Path to parquet to evaluate")
+
+    evaluate.add_argument("--eval_checkpoint", type=str, required=True,
+                         help="Path to checkpoint to evaluate")
+    
     evaluate.set_defaults(func=run_evaluate)
     
     # Plot subparser
