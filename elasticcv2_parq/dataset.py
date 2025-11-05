@@ -17,6 +17,7 @@ def padd_parquet(parqu_, col_names_to_pad=['FLUXCAL', 'FLUXCALERR', 'MJD', 'BAND
     ## Find max length
     #lents = [len(p) for p in parqu_['FLUXCAL']]
     maxlen = max(parqu_['FLUXCAL'].list.len()) #max(lents)
+    print(f"Max lengths of parquet {maxlen}")
     padd_mask = False
     for col in col_names_to_pad:
         

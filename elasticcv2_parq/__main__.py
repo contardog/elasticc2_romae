@@ -55,7 +55,10 @@ if __name__ == '__main__':
                          help="Path to training parquet")
     pretrain.add_argument("--test_parquet", type=str, required=True,
                          help="Path to test parquet")
-
+    
+    pretrain.add_argument('--vega',  action="store_true",
+                    help="Use if run on clusters to avoid wrong computation of worker numbers!!")
+                          #action=argparse.BooleanOptionalAction)
     
     pretrain.set_defaults(func=run_pretrain)
     

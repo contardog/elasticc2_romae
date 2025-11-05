@@ -5,6 +5,7 @@ from romae.trainer import Trainer, TrainerConfig
 from elasticcv2_parq.dataset import ElasticcParquetDataset
 from elasticcv2_parq.config import ElasticcConfig
 
+import os
 
 def pretrain(args):
     """
@@ -55,8 +56,16 @@ def pretrain(args):
         entity_name='contardog-university-of-nova-gorica',
         gradient_clip=config.pretrain_grad_clip,
         lr_scaling=True,
-        #max_checkpoints = 20,
+        max_checkpoints = config.max_checkpoints,
     )
+
+    if (args.vega):
+        print("Original trainer config num_dataset_workerS")
+        print(trainer_config.num_dataset_workers)
+        print("Overriding")
+        trainer_config.num_dataset_workers=len(os.sched_getaffinity(0)) #*2
+        print(trainer_config.num_dataset_workers)
+
     print("Start pretrain")
     
     trainer = Trainer(trainer_config)
