@@ -22,6 +22,7 @@ def pretrain(args):
 
     model_config = RoMAEForPreTrainingConfig(
         encoder_config=EncoderConfig(**encoder_args),
+        decoder_config= EncoderConfig(**encoder_args),
         tubelet_size=(1, 1, 1),
         n_channels=2,
         n_pos_dims=2
