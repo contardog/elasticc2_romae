@@ -13,6 +13,13 @@ class ElasticcConfig(BaseSettings):
         env_file='.env',
         extra="ignore"
     )
+    
+    pretrained_model: Optional[str] = Field(None)
+    eval_checkpoint: Optional[str] = Field(None)
+    eval_batch_size: Optional[int] = Field(128)
+    gaussian_noise: Optional[bool] = Field(False)
+    model_size: str = Field("super-tiny")
+    
     pretrain_epochs: int = Field(400)
     pretrain_lr: float = Field(4e-4)
     pretrain_warmup_steps: int = 20
