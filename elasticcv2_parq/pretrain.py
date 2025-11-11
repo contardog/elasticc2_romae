@@ -4,6 +4,7 @@ from romae.trainer import Trainer, TrainerConfig
 
 from elasticcv2_parq.dataset import ElasticcParquetDataset
 from elasticcv2_parq.config import ElasticcConfig
+from elasticcv2_parq.utils import override_encoder_size
 
 import os
 
