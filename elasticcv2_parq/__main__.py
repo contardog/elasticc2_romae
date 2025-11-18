@@ -62,6 +62,9 @@ if __name__ == '__main__':
     pretrain.add_argument('--vega',  action="store_true",
                     help="Use if run on clusters to avoid wrong computation of worker numbers!!")
                           #action=argparse.BooleanOptionalAction)
+    pretrain.add_argument('--no_cls',  action="store_true",
+                    help="Use if you want to NOT have the CLS token")
+
     
     pretrain.set_defaults(func=run_pretrain)
     
@@ -87,7 +90,9 @@ if __name__ == '__main__':
                          help="Path to training parquet")
     finetune.add_argument("--test_parquet", type=str, required=True,
                          help="Path to test parquet")
-
+    # This should not be necessary as it should load automatically from the pretrained_model being evaluated
+    # finetune.add_argument('--no_cls',  action="store_true",
+    #                 help="Use if you want to NOT have the CLS token")
     
     finetune.set_defaults(func=run_finetune)
     

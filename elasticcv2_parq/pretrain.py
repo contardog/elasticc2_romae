@@ -40,6 +40,9 @@ def pretrain(args):
         n_pos_dims=2
     )
 
+    if args.no_cls:
+        model_config.use_cls = False
+
     print(model_config)
     
     if args.lr is not None:

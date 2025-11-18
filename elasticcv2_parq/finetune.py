@@ -36,6 +36,10 @@ def finetune(args):
         config.pretrained_model,
         dim_output=config.n_classes
     )
+    
+    # if args.no_cls:
+    #     model_config.use_cls = False
+        
     model.set_loss_fn(
         torch.nn.CrossEntropyLoss(
             weight=torch.tensor(config.class_weights if config.finetune_use_class_weights else None),
