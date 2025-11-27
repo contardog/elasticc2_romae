@@ -57,7 +57,7 @@ class ElasticcConfig(BaseSettings):
     n_classes: int = Field(32)
     
     
-    project_name: str = Field("Mallorn_")
+    project_name: str = Field("_")
     finetune_optimargs: dict[str, Any] = {"betas": (0.9, 0.999),
                                            "weight_decay": 0.05}
     pretrain_optimargs: dict[str, Any] = {"betas": (0.9, 0.95),
