@@ -54,6 +54,9 @@ def pretrain(args):
     if args.epochs is not None:
         print("Overridding configured number of epochs")
         config.pretrain_epochs = args.epochs
+    if args.pretrain_mask_ratio is not None:
+        print("Overriding mask ratio")
+        config.pretrain_mask_ratio = args.pretrain_mask_ratio
 
 
 
@@ -86,9 +89,10 @@ def pretrain(args):
     
     trainer = Trainer(trainer_config)
     with (
-        ElasticcParquetDataset(args.test_parquet) as test_dataset,
+        ElasticcParquetDataset(args.test_parquet, mask_ratio=config.pretrain_mask_ratio) as test_dataset,
         ElasticcParquetDataset(args.train_parquet,                
-                         gaussian_noise=config.gaussian_noise) as train_dataset
+                         gaussian_noise=config.gaussian_noise,
+                              mask_ratio=config.pretrain_mask_ratio) as train_dataset
     ):
         trainer.train(
             train_dataset=train_dataset,

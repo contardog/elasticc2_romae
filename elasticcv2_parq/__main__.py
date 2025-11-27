@@ -41,6 +41,8 @@ if __name__ == '__main__':
     pretrain.add_argument("--batch_size", type=int, default=None,
                          help="Batch size for training")
 
+    pretrain.add_argument("--pretrain_mask_ratio", type=float, default=None, 
+                         help="Mask ratio for pretraining")
     
     pretrain.add_argument("--model_size", type=str, default=None,
                          help="Model size (string e.g. super-tiny, see RoMAE and this code utils files)")
@@ -73,6 +75,9 @@ if __name__ == '__main__':
 
     finetune.add_argument("--lr", type=float, default=None, 
                          help="Learning rate for training")
+    
+    finetune.add_argument("--finetune_mask_ratio", type=float, default=None, 
+                         help="Mask ratio for finetuning")
     
     finetune.add_argument("--batch_size", type=int, default=None,
                          help="Batch size for training")

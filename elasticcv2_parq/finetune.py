@@ -31,6 +31,9 @@ def finetune(args):
     if args.epochs is not None:
         print("Overridding configured number of epochs")
         config.finetune_epochs = args.epochs
+    if args.finetune_mask_ratio is not None:
+        print("Overriding mask ratio for finetuning")
+        config.finetune_mask_ratio = args.finetune_mask_ratio
         
     model = RoMAEForClassification.from_pretrained(
         config.pretrained_model,
@@ -66,7 +69,7 @@ def finetune(args):
     trainer = Trainer(trainer_config)
     with ( ## Mask ratio ?!
         ElasticcParquetDatasetwLabel(args.test_parquet, mask_ratio=0) as test_dataset,
-        ElasticcParquetDatasetwLabel(args.train_parquet,            mask_ratio=0,     
+        ElasticcParquetDatasetwLabel(args.train_parquet,            mask_ratio=config.finetune_mask_ratio,     
                          gaussian_noise=config.gaussian_noise) as train_dataset
     ):
         trainer.train(
